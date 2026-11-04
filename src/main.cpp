@@ -138,7 +138,7 @@ public:
         Count--;
         cout << "Ticket: " << currTicket->ID << " was served in " << currTicket->Minutes
              << " minutes. Requestor: " << currTicket->Name
-             << " Category: " << currTicket->Category << endl;
+             << ", Category: " << currTicket->Category << endl;
         Actions.AddAction(currTicket, "Serve");
     }
 
@@ -152,8 +152,8 @@ public:
         int totalMinutes = 0;
         for (Ticket* currTicket = Front; currTicket != nullptr; currTicket = currTicket->NextTicket) {
             cout << "Ticket " << currTicket->ID << " - Requestor: " << currTicket->Name
-                 << " Category: " << currTicket->Category
-                 << " Task Time: " << currTicket->Minutes << endl;
+                 << ", Category: " << currTicket->Category
+                 << ", Task Time: " << currTicket->Minutes << endl;
             totalMinutes += currTicket->Minutes;
         }
         cout << "Total Waiting Minutes: " << totalMinutes << endl;
@@ -354,7 +354,7 @@ void runTests() {
     q.Undo();
 
     header("Load tickets.csv");
-    q.Load("tickets.csv");
+    q.Load("data/tickets.csv");
     q.Print();
 
     header("Serve two tickets");
