@@ -150,13 +150,34 @@ public:
             return;
         }
         int totalMinutes = 0;
+        // ==For Two Agents==
+        // int agent1Min = 0;
+        // int agent2Min = 0;
+        // int currAgent = 1; 
         for (Ticket* currTicket = Front; currTicket != nullptr; currTicket = currTicket->NextTicket) {
+
             cout << "Ticket " << currTicket->ID << " - Requestor: " << currTicket->Name
                  << ", Category: " << currTicket->Category
-                 << ", Task Time: " << currTicket->Minutes << endl;
+                 << ", Task Time: " << currTicket->Minutes
+                 << ", Wait Time: " << totalMinutes << endl; 
             totalMinutes += currTicket->Minutes;
+            
+            // == For Two Agents ==
+            // if (currAgent == 1) {
+            //     cout << ", Wait Time (Agent 1): " << agent1Min << endl;
+            //     agent1Min += currTicket->Minutes;
+            //     currAgent = 2;
+            // } else {
+            //     cout << ", Wait Time (Agent 2): " << agent2Min << endl;
+            //     agent2Min += currTicket->Minutes;
+            //     currAgent = 1;
+            // }
         }
         cout << "Total Waiting Minutes: " << totalMinutes << endl;
+
+        // == For Two Agents ==
+        // cout << "Total Waiting Minutes Agent 1: " << agent1Min << endl;
+        // cout << "Total Waiting Minutes Agent 2: " << agent2Min << endl;
     }
 
     // ===================== Feature 4: Search by ID or Name =====================
